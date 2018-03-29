@@ -1,92 +1,80 @@
 # TigerRide
 COSC 412 Term Project 
 
-<!DOCTYPE html>
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 27, 2018, 12:47:27 PM
+    Author     : jordanpuglisi
+*/
 
-<html>
-    <head>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta charset="utf-8">
-    </head>
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+        url(login_background.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
 
+.login-page{
+    width: 360px;
+    padding: 10% 0 0;
+    margin: auto;
+}
 
-    <style>
-        #map {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            height: 600px;
-            width: 50%;
-        }
-    </style>
-    <body>
-        <!-- Google Maps API Implementation -->
-        <h3>My Google Maps Demo</h3>
-        <div id="map"></div>
-        <script>
+.form{
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
 
-            function initMap() {
-                var uluru = {lat: 39.5, lng: -76.4};
-                var uluru2 = {lat: 39.4, lng: -76.6};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 9,
-                    center: uluru,
-                });
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
-                });
-                var marker2 = new google.maps.Marker({
-                    position: uluru2,
-                    map: map
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCLIg1kqotsvaLVTEVYN0gh_g8a-yW3-E4 &callback=initMap">
-        </script>
-        <!-- End Google Maps API Implementation -->
+.form input{
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    background: #F2F2F2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;   
+}
 
-        <!-- Code to get lat/long values of current location -->
-        <p>Click the button to get your coordinates.</p>
+.form button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
 
-        <button onclick="getLocation()">Try It</button>
+.form button:hover,.form button:active{
+    background: #43A047
+}
 
-        <p id="demo"></p>
+.form .message{
+    margin: 15px 0 0;
+    color: crimson;
+    font-size: 12px;
+}
 
-            <script>
-            var x = document.getElementById("demo");
+.form .message a{
+    color: #4CAF50;
+    text-decoration: none;
+}
 
-                function getLocation() {
-                    if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-                    } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-            }
-
-                function showPosition(position) {
-                        x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
-            }
-                function showError(error) {
-                    switch (error.code) {
-                        case error.PERMISSION_DENIED:
-                        x.innerHTML = "User denied the request for Geolocation."
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        x.innerHTML = "Location information is unavailable."
-                        break;
-                    case error.TIMEOUT:
-                        x.innerHTML = "The request to get user location timed out."
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        x.innerHTML = "An unknown error occurred."
-                        break;
-                }
-            }
-
-<!-- End code for getting lat/long values -->
-    </body>
-    
-</html>
+.form .register-form{
+    display: none
+}
