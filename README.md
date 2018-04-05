@@ -12,6 +12,7 @@
         <button>Log in</button>
         <script>
             // Code to "when clicked" open login/registration
+            
             // Also a css sheet to design index and move login to top right
 
         </script>
